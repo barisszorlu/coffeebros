@@ -1,0 +1,23 @@
+.app-navbar {
+  max-width: 100%;
+  
+  // background-color: #343a40 !important;
+
+  button.navbar-toggler {
+    padding-right: 10px;
+  }
+
+  @media screen and (min-width: 1024px) {
+    max-height: 50px;
+  }
+
+  @media screen and (min-width: 768px) {
+    button.navbar-toggler {
+      padding-right: 20px;
+    }
+  }
+}
+
+.app-lang {
+  cursor: pointer;
+}

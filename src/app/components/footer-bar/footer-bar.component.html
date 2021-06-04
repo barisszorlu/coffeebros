@@ -1,0 +1,77 @@
+<footer class="ftco-footer ftco-bg-dark ftco-section">
+  <div class="container">
+    <div class="row mb-5">
+      <div class="col-md-12">
+        <div class="row" style="justify-content: center">
+          <div class="ftco-animate">
+            <div class="ftco-footer-widget mb-4">
+              <h2 class="ftco-heading-2" style="text-align: center; text-transform: none !important;">
+                İletişim Bilgileri
+              </h2>
+              <ul class="list-unstyled" style="text-align: center">
+                <li class="ftco-animate">
+                  <a href="#" target="_blank">
+                    <span class="icon-phone">
+                      <span class="ml-2">{{ contact?.phone }}</span>
+                    </span>
+                  </a>
+                </li>
+                <li class="ftco-animate">
+                  <a href="#" target="_blank">
+                    <span class="icon-email">
+                      <span class="ml-2">{{ contact?.mail }}</span>
+                    </span>
+                  </a>
+                </li>
+                <li class="ftco-animate">
+                  <a href="#" target="_blank">
+                    <span class="icon-address">
+                      <span class="ml-2">{{ contact?.address }}</span>
+                    </span>
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="row" style="justify-content: center">
+          <div class="ftco-footer-widget mb-4">
+            <ul
+              class="ftco-footer-social list-unstyled float-md-right float-lft"
+            >
+              <li class="ftco-animate">
+                <a [href]="facebookUrl" target="_blank"
+                  ><span class="icon-facebook"></span
+                ></a>
+              </li>
+              <li class="ftco-animate">
+                <a [href]="instagramUrl" target="_blank"
+                  ><span class="icon-instagram"></span
+                ></a>
+              </li>
+              <li class="ftco-animate">
+                <a [href]="yemekUrl" target="_blank"
+                  ><span class="icon-shop"></span
+                ></a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row ftco-animate">
+      <div class="col-md text-left">
+        <p>
+          Copyright &copy; 2020, Tüm hakları saklıdır.
+          <span class="icon-heart text-danger" *ngIf="false"></span>
+          <a href="https://c4agency.com/" target="_blank" style="float: right">
+            <img
+              src="assets/images/c4_f_logo.png"
+              style="max-width: 15px; max-height: 20px"
+            />
+          </a>
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>

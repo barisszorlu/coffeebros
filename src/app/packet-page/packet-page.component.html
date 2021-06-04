@@ -1,0 +1,102 @@
+<app-navigation-bar currentLangId="1" (langChange)="onLangChange($event)">
+</app-navigation-bar>
+
+<section id="menu" class="ftco-section bg-light">
+  <div>
+    <div class="container h-100">
+      <div class="col-md-12 text-center mb-5 ftco-animate">
+      <div>
+      <a _ngcontent-kgi-c49="" href="tel:+902862110181" target="_blank">
+      <span _ngcontent-kgi-c49="" class="icon-phone"></span>
+      <h5>+90 286 211 01 81</h5>
+      </a>
+      </div>
+        <div><h2 class="display-4">Paketlerimiz</h2></div>
+      </div>
+      <div class="col-md-12 text-center">
+        <div>
+          <div class="text-left">
+            <ng-container *ngFor="let packet of packets; let i = index">
+              <div class="col-md-6 ftco-animate">
+                <div
+                  class="media align-items-center menu-item"
+                  *ngIf="i < packets.length / 2"
+                >
+                  <div class="col-md-3">
+                    <a
+                      class="mr-3 ftco-thumbnail image-popup-menu"
+                      style="width: 100px"
+                      [href]="packet.image"
+                    >
+                      <img
+                        class="img-fluid"
+                        style="width: 100px; height: 100px"
+                        [src]="packet.image"
+                      />
+                    </a>
+                  </div>
+                  <div class="col-md-9 app-description-wrapper">
+                    <h5 class="mt-0">{{ packet.title }}</h5>
+                    <p class="app-description-text">{{ packet.description }}</p>
+                    <h6 class="text-primary menu-price">
+                      {{ packet.price }} ₺
+                    </h6>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-6 ftco-animate">
+                <div
+                  class="media align-items-center menu-item"
+                  *ngIf="i >= packets.length / 2"
+                >
+                  <div class="col-md-3">
+                    <a
+                      class="mr-3 ftco-thumbnail image-popup-menu"
+                      [href]="packet.image"
+                    >
+                      <img class="img-fluid" [src]="packet.image" />
+                    </a>
+                  </div>
+                  <div class="col-md-9 app-description-wrapper">
+                    <h5 class="mt-0">{{ packet.title }}</h5>
+                    <p class="app-description-text">{{ packet.description }}</p>
+                    <h6 class="text-primary menu-price">
+                      {{ packet.price }} ₺
+                    </h6>
+                  </div>
+                </div>
+              </div>
+            </ng-container>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<app-footer-bar id="info" [contact]="contact"></app-footer-bar>
+
+<!-- loader -->
+<div id="ftco-loader" class="show fullscreen">
+  <svg class="circular" width="48px" height="48px">
+    <circle
+      class="path-bg"
+      cx="24"
+      cy="24"
+      r="22"
+      fill="none"
+      stroke-width="4"
+      stroke="#eeeeee"
+    />
+    <circle
+      class="path"
+      cx="24"
+      cy="24"
+      r="22"
+      fill="none"
+      stroke-width="4"
+      stroke-miterlimit="10"
+      stroke="#F96D00"
+    />
+  </svg>
+</div>

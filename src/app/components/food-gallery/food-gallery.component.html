@@ -1,0 +1,27 @@
+<div class="container">
+  <div class="row ftco-custom-gutters">
+    <div class="col-md-12 text-center mb-5 ftco-animate">
+      <h2 class="display-4">Yemek Galerisi</h2>
+      <div class="row justify-content-center" *ngIf="false">
+        <div class="col-md-7">
+          <p class="lead">
+            Far far away, behind the word mountains, far from the countries
+            Vokalia and Consonantia, there live the blind texts.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="owl-carousel ftco-owl">
+      <div
+        class="col-md-4 ftco-animate"
+        style="min-width: 100%"
+        *ngFor="let menu of menus"
+      >
+        <a [href]="menu.image" class="ftco-thumbnail image-popup">
+          <img [src]="menu.image" class="img-fluid" />
+        </a>
+      </div>
+    </div>
+  </div>
+</div>

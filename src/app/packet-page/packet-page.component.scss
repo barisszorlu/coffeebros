@@ -1,0 +1,32 @@
+.packet-container {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  min-width: 100vw;
+  min-height: 100vh;
+
+  section#menu {
+    flex: 1 1 100%;
+  }
+
+  section#menu.ftco-section {
+    @media screen and (max-width: 1024px) {
+      padding: 3.5em 0;
+    }
+  }
+
+  .footer-container {
+    justify-self: flex-end;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+  }
+}
+
+.app-description-wrapper {
+  overflow: hidden;
+}
+
+.app-description-text {
+  white-space: normal;
+}

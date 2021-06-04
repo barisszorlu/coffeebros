@@ -1,0 +1,60 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-12 text-center mb-5 ftco-animate">
+      <h2 class="display-4">Önerileriniz</h2>
+      <div class="row justify-content-center" *ngIf="false">
+        <div class="col-md-7">
+          <p class="lead">
+            Far far away, behind the word mountains, far from the countries
+            Vokalia and Consonantia, there live the blind texts.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md mb-5 ftco-animate">
+      <form action="" method="post">
+        <div class="form-group">
+          <label for="name" class="sr-only">Adınız</label>
+          <input
+            type="text"
+            class="form-control"
+            id="name"
+            name="name"
+            placeholder="Adınız ..."
+            maxlength="30"
+            [(ngModel)]="user.name"
+          />
+        </div>
+        <div class="form-group">
+          <label for="email" class="sr-only">E-posta</label>
+          <input
+            type="text"
+            class="form-control"
+            id="email"
+            name="email"
+            placeholder="E-posta ..."
+            maxlength="30"
+            [(ngModel)]="user.email"
+          />
+        </div>
+        <div class="form-group">
+          <label for="message" class="sr-only">Notunuz</label>
+          <textarea
+            name="message"
+            id="message"
+            cols="30"
+            rows="10"
+            class="form-control"
+            placeholder="Öneriniz ..."
+            maxlength="500"
+            [(ngModel)]="user.message"
+          ></textarea>
+        </div>
+        <div class="form-group">
+          <p><a class="btn btn-secondary btn-lg" (click)="onSend()" style="background-color: white;">Gönder</a></p>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

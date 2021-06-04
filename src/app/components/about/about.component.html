@@ -1,0 +1,18 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-5 ftco-animate mb-5 app-info">
+      <h4 class="ftco-sub-title">Hakkımızda</h4>
+      <h2 class="ftco-primary-title display-4 header-overflow" style="line-height: 4.25rem;">
+        {{ about?.aboutDetails[0]?.title }}
+      </h2>
+      <p>
+        {{ about?.aboutDetails[0]?.description }}
+      </p>
+      <!-- <p><a href="#" class="btn btn-secondary btn-lg">Our Story</a></p> -->
+    </div>
+    <div class="col-md-1"></div>
+    <div class="col-md-6 ftco-animate img" data-animate-effect="fadeInRight">
+      <img class="app-img" [src]="about?.aboutDetails[0]?.image" />
+    </div>
+  </div>
+</div>

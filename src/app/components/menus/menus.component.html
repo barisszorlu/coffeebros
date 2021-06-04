@@ -1,0 +1,129 @@
+<div
+  class="container"
+  *ngIf="categories && menus && categories.length > 0 && menus.length > 0"
+>
+  <div class="row">
+    <div class="col-md-12 text-center mb-5 ftco-animate">
+      <h2 class="display-4">Menülerimiz</h2>
+      <div class="row justify-content-center" *ngIf="false">
+        <div class="col-md-7">
+          <p class="lead">
+            {{ activeCategory.name }}
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-12 text-center">
+      <ul class="nav ftco-tab-nav nav-pills mb-5" id="pills-tab" role="tablist">
+        <ng-container *ngFor="let category of categories">
+          <li
+            class="nav-item ftco-animate mb-2"
+            *ngIf="
+              panels[category.idCategory] &&
+              panels[category.idCategory].length > 0
+            "
+            (click)="onTabChange(category)"
+          >
+            <a
+              class="nav-link"
+              data-toggle="pill"
+              role="tab"
+              [ngClass]="{
+                active: activeCategory.idCategory === category.idCategory
+              }"
+              [id]="'pills-' + category.idCategory + '-tab'"
+              [href]="'#pills-' + category.idCategory"
+              [attr.aria-selected]="
+                activeCategory.idCategory === category.idCategory
+              "
+              [attr.aria-controls]="'#pills-' + category.idCategory"
+              >{{ category.name }}</a
+            >
+          </li>
+        </ng-container>
+      </ul>
+
+      <div class="tab-content text-left">
+        <ng-container *ngFor="let category of categories">
+          <div
+            class="tab-pane fade"
+            role="tabpanel"
+            [ngClass]="{
+              active: activeCategory?.idCategory === category.idCategory,
+              show: activeCategory?.idCategory === category.idCategory
+            }"
+            [id]="'pills-' + category.idCategory"
+            [attr.aria-labelledby]="'pills-' + category.idCategory + '-tab'"
+          >
+            <div class="app-scrollable-row">
+              <div class="row">
+                <div class="col-12 col-md-6 ftco-animate">
+                  <ng-container
+                    *ngFor="
+                      let menu of panels[category.idCategory];
+                      let i = index
+                    "
+                  >
+                    <div
+                      class="menu-item"
+                      *ngIf="i < panels[category.idCategory].length / 2"
+                    >
+                      <div class="col-12 col-md-3" style="text-align: center">
+                        <a
+                          class="mr-3 ftco-thumbnail image-popup-menu"
+                          [href]="menu.image"
+                        >
+                          <img class="img-fluid" [src]="menu.image" />
+                        </a>
+                        <h6 class="text-primary menu-price">
+                          {{ menu.price }} ₺
+                        </h6>
+                      </div>
+                      <div class="col-12 col-md-9 app-description-wrapper">
+                        <h5 class="mt-0">{{ menu.title }}</h5>
+                        <p class="app-description-text">{{ menu.description }}</p>
+                        <!-- <h6 class="text-primary menu-price">
+                          {{ menu.price }} ₺
+                        </h6> -->
+                      </div>
+                    </div>
+                  </ng-container>
+                </div>
+                <div class="col-12 col-md-6 ftco-animate p-xs-0">
+                  <ng-container
+                    *ngFor="
+                      let menu of panels[category.idCategory];
+                      let i = index
+                    "
+                  >
+                    <div
+                      class="menu-item"
+                      *ngIf="i >= panels[category.idCategory].length / 2"
+                    >
+                      <div class="col-12 col-md-3" style="text-align: center">
+                        <a
+                          class="mr-3 ftco-thumbnail image-popup-menu"
+                          [href]="menu.image"
+                        >
+                          <img class="img-fluid" [src]="menu.image" />
+                        </a>
+                        <h6 class="text-primary menu-price">
+                          {{ menu.price }} ₺
+                        </h6>
+                      </div>
+                      <div class="col-12 col-md-9 app-description-wrapper">
+                        <h5 class="mt-0">{{ menu.title }}</h5>
+                        <p class="app-description-text">{{ menu.description }}</p>
+                      </div>
+                    </div>
+                  </ng-container>
+                </div>
+              </div>
+            </div>
+          </div>
+        </ng-container>
+      </div>
+    </div>
+  </div>
+</div>

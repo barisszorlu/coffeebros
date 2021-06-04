@@ -1,0 +1,23 @@
+.app-scrollable-row {
+  overflow-x: hidden;
+  overflow-y: auto;
+  max-height: 480px;
+  white-space: nowrap;
+
+  > .row {
+    overflow: hidden;
+  }
+}
+
+.app-description-wrapper {
+  overflow: hidden;
+}
+
+.app-description-text {
+  white-space: normal;
+}
+
+.menu-item {
+  display: flex;
+  flex-wrap: wrap;
+}
