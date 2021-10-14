@@ -1,7 +1,4 @@
-<div
-  class="container"
-  *ngIf="categories && menus && categories.length > 0 && menus.length > 0"
->
+<div class="container" *ngIf="categories && menus && categories.length > 0 && menus.length > 0">
   <div class="row">
     <div class="col-md-12 text-center mb-5 ftco-animate">
       <h2 class="display-4">Menülerimiz</h2>
@@ -15,65 +12,41 @@
     </div>
 
     <div class="col-md-12 text-center">
-      <ul class="nav ftco-tab-nav nav-pills mb-5" id="pills-tab" role="tablist">
+      <ul class="nav ftco-tab-nav nav-pills mb-5" id="pills-tab" role="tablist" *ngIf="!mobile">
         <ng-container *ngFor="let category of categories">
-          <li
-            class="nav-item ftco-animate mb-2"
-            *ngIf="
+          <li class="nav-item ftco-animate mb-2" *ngIf="
               panels[category.idCategory] &&
               panels[category.idCategory].length > 0
-            "
-            (click)="onTabChange(category)"
-          >
-            <a
-              class="nav-link"
-              data-toggle="pill"
-              role="tab"
-              [ngClass]="{
+            " (click)="onTabChange(category)">
+            <a class="nav-link" data-toggle="pill" role="tab" [ngClass]="{
                 active: activeCategory.idCategory === category.idCategory
-              }"
-              [id]="'pills-' + category.idCategory + '-tab'"
-              [href]="'#pills-' + category.idCategory"
+              }" [id]="'pills-' + category.idCategory + '-tab'" [href]="'#pills-' + category.idCategory"
               [attr.aria-selected]="
                 activeCategory.idCategory === category.idCategory
-              "
-              [attr.aria-controls]="'#pills-' + category.idCategory"
-              >{{ category.name }}</a
-            >
+              " [attr.aria-controls]="'#pills-' + category.idCategory">{{ category.name }} </a>
           </li>
         </ng-container>
       </ul>
-
+      <!-- [(ngModel)]="selectedCar" -->
+      <ng-select [items]="categories" [searchable]="false"   *ngIf="mobile" bindLabel="name" bindValue="idCategory" (change)="ChangeMenu($event)" class="mb-4" 
+      [(ngModel)]="idCategory">
+      </ng-select>
       <div class="tab-content text-left">
         <ng-container *ngFor="let category of categories">
-          <div
-            class="tab-pane fade"
-            role="tabpanel"
-            [ngClass]="{
+          <div class="tab-pane fade" role="tabpanel" [ngClass]="{
               active: activeCategory?.idCategory === category.idCategory,
               show: activeCategory?.idCategory === category.idCategory
-            }"
-            [id]="'pills-' + category.idCategory"
-            [attr.aria-labelledby]="'pills-' + category.idCategory + '-tab'"
-          >
+            }" [id]="'pills-' + category.idCategory" [attr.aria-labelledby]="'pills-' + category.idCategory + '-tab'">
             <div class="app-scrollable-row">
               <div class="row">
                 <div class="col-12 col-md-6 ftco-animate">
-                  <ng-container
-                    *ngFor="
+                  <ng-container *ngFor="
                       let menu of panels[category.idCategory];
                       let i = index
-                    "
-                  >
-                    <div
-                      class="menu-item"
-                      *ngIf="i < panels[category.idCategory].length / 2"
-                    >
+                    ">
+                    <div class="menu-item" *ngIf="i < panels[category.idCategory].length / 2">
                       <div class="col-12 col-md-3" style="text-align: center">
-                        <a
-                          class="mr-3 ftco-thumbnail image-popup-menu"
-                          [href]="menu.image"
-                        >
+                        <a class="mr-3 ftco-thumbnail image-popup-menu" [href]="menu.image">
                           <img class="img-fluid" [src]="menu.image" />
                         </a>
                         <h6 class="text-primary menu-price">
@@ -91,21 +64,13 @@
                   </ng-container>
                 </div>
                 <div class="col-12 col-md-6 ftco-animate p-xs-0">
-                  <ng-container
-                    *ngFor="
+                  <ng-container *ngFor="
                       let menu of panels[category.idCategory];
                       let i = index
-                    "
-                  >
-                    <div
-                      class="menu-item"
-                      *ngIf="i >= panels[category.idCategory].length / 2"
-                    >
+                    ">
+                    <div class="menu-item" *ngIf="i >= panels[category.idCategory].length / 2">
                       <div class="col-12 col-md-3" style="text-align: center">
-                        <a
-                          class="mr-3 ftco-thumbnail image-popup-menu"
-                          [href]="menu.image"
-                        >
+                        <a class="mr-3 ftco-thumbnail image-popup-menu" [href]="menu.image">
                           <img class="img-fluid" [src]="menu.image" />
                         </a>
                         <h6 class="text-primary menu-price">

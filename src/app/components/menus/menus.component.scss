@@ -21,3 +21,15 @@
   display: flex;
   flex-wrap: wrap;
 }
+
+
+
+::ng-deep .ng-select.custom {
+  min-height: 0px;
+  max-width: 350px;
+}
+
+::ng-deep .ng-select {
+border: 1px solid black !important;
+background-color: aqua !important;
+}

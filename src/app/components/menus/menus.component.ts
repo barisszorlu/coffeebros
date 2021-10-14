@@ -19,15 +19,24 @@ export class MenusComponent implements OnInit, OnChanges {
 
   panels: { [key: number]: Menu[] } = {};
   activeCategory: Category;
-
+  mobile: boolean = false;
+  idCategory: number;
   constructor() {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    if (window.screen.width < 768) {
+      this.mobile = true;
+    }
+  }
 
   ngOnChanges(changes: SimpleChanges): void {
     if (changes.categories || changes.menus) {
       this.initPanels();
     }
+  }
+
+  ChangeMenu(event: any){
+    this.activeCategory = { ...event };
   }
 
   onTabChange(category: Category): void {
@@ -48,6 +57,7 @@ export class MenusComponent implements OnInit, OnChanges {
       this.categories.splice(0, 0, allCategory);
       this.mapAll(this.categories[0]);
       this.activeCategory = this.categories[0];
+      this.idCategory = this.categories[0]?.idCategory;
     }
   }
 

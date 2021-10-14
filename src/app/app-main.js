@@ -163,9 +163,6 @@ application.load = function () {
         }
       }
     );
-    $("body").on("activate.bs.scrollspy", function () {
-      console.log("nice");
-    });
   };
   OnePageNav();
 
@@ -209,10 +206,4 @@ application.load = function () {
       duration: 300, // don't foget to change the duration also in CSS
     },
   });
-
-  $("#m_date").datepicker({
-    format: "m/d/yyyy",
-    autoclose: true,
-  });
-  $("#m_time").timepicker();
 };

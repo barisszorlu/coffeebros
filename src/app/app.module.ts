@@ -15,6 +15,8 @@ import { NewsAndEventsComponent } from './components/news-and-events/news-and-ev
 import { OffersAndPromosComponent } from './components/offers-and-promos/offers-and-promos.component';
 import { HomePageComponent } from './home-page/home-page.component';
 import { PacketPageComponent } from './packet-page/packet-page.component';
+import { NgbCarouselModule } from '@ng-bootstrap/ng-bootstrap';
+import { NgSelectModule } from '@ng-select/ng-select';
 
 @NgModule({
   declarations: [
@@ -36,6 +38,8 @@ import { PacketPageComponent } from './packet-page/packet-page.component';
     HttpClientModule,
     FormsModule,
     AppRoutingModule,
+    NgbCarouselModule,
+    NgSelectModule  
   ],
   providers: [],
   bootstrap: [AppComponent],
